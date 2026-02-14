@@ -4,11 +4,19 @@
 
 A workflow for managing AI agent tasks using vimwiki. Create tasks as wiki files, launch Claude Code agents from vim with a single keypress, and track progress through a simple todo -> wip -> done lifecycle.
 
-## Dependencies
+## Prerequisites
 
-- [vimwiki](https://github.com/vimwiki/vimwiki) -- vim plugin for personal wikis
-- [tmux](https://github.com/tmux/tmux) -- terminal multiplexer (tasks open in new tmux windows)
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) -- Anthropic's CLI for Claude
+- [vim](https://www.vim.org/) or [neovim](https://neovim.io/)
+- [vimwiki](https://github.com/vimwiki/vimwiki) plugin installed and `g:vimwiki_list` configured in your vim config:
+  ```vim
+  let g:vimwiki_list = [{'path': '~/vimwiki'}]
+  ```
+- [tmux](https://github.com/tmux/tmux) -- tasks launch in new tmux windows, so vim must be running inside a tmux session
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed and authenticated
+- A vimwiki directory with `todo/`, `wip/`, and `done/` subdirectories:
+  ```bash
+  mkdir -p ~/vimwiki/{todo,wip,done}
+  ```
 
 ## Setup
 
@@ -21,7 +29,6 @@ A workflow for managing AI agent tasks using vimwiki. Create tasks as wiki files
    ```vim
    source ~/repos/claude-tasks/vimwiki_launcher.vim
    ```
-   This assumes the vimwiki plugin is already installed and `g:vimwiki_list` is configured.
 
 3. Generate Claude config and paste into `~/.claude/CLAUDE.md`:
    ```bash
