@@ -86,9 +86,26 @@ function! VimwikiMv(dest) abort
   execute 'VimwikiRenameFile ' . l:target
 endfunction
 
+" :AIManager -- open the task manager dashboard in a new tmux window
+function! VimwikiAIManager() abort
+  if empty($TMUX)
+    echoerr 'AIManager: not inside a tmux session'
+    return
+  endif
+
+  let l:cmd = 'tmux new-window -n claude-manager -- '
+        \ . 'python3 ' . shellescape(s:repo_dir . '/claude_manager.py')
+        \ . ' --wiki-path ' . shellescape(s:wiki_path)
+  call system(l:cmd)
+  if v:shell_error
+    echoerr 'AIManager: failed to create tmux window'
+  endif
+endfunction
+
 augroup VimwikiAITask
   autocmd!
   autocmd FileType vimwiki command! -buffer AITask call VimwikiAITask()
+  autocmd FileType vimwiki command! -buffer AIManager call VimwikiAIManager()
   autocmd FileType vimwiki command! -buffer -nargs=1 VimwikiMv call VimwikiMv(<f-args>)
   autocmd FileType vimwiki nnoremap <buffer> <leader>ai :AITask<CR>
   autocmd FileType vimwiki nnoremap <buffer> <leader>mv :VimwikiMv ../

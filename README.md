@@ -79,6 +79,58 @@ Tasks follow a three-stage lifecycle:
 | `<leader>ai` | `:AITask` | Launch Claude agent for current task |
 | `<leader>t` | | Convert text to linked task |
 | `<leader>mv` | `:VimwikiMv` | Move task between directories |
+| | `:AIManager` | Open the task manager dashboard |
+
+## Task Manager
+
+`claude_manager.py` is a terminal dashboard that monitors all active tasks in `wip/`. It runs continuously in its own tmux window and alerts you when tasks need attention.
+
+### What it monitors
+
+- **Blocked/waiting tasks** -- Status contains words like "waiting", "blocked", "paused"
+- **Crashed agents** -- No Claude process found for a task that isn't complete
+- **Stale tasks** -- No wiki file update in the last 10 minutes (configurable)
+- **Completed tasks** -- Status suggests the task is done and should be moved to `done/`
+
+### Running the manager
+
+From vim (opens in a new tmux window):
+```
+:AIManager
+```
+
+Or directly from the terminal:
+```bash
+python3 ~/repos/claude-tasks/claude_manager.py
+```
+
+### Options
+
+```
+python3 claude_manager.py [--wiki-path PATH] [--interval SECONDS] [--stale-minutes MINUTES] [--no-notifications]
+```
+
+| Flag | Default | Description |
+|---|---|---|
+| `--wiki-path` | `~/vimwiki` | Path to vimwiki root |
+| `--interval` | `30` | Seconds between refreshes |
+| `--stale-minutes` | `10` | Minutes before a task is flagged as stale |
+| `--no-notifications` | off | Disable macOS desktop notifications |
+
+### Dashboard controls
+
+| Key | Action |
+|---|---|
+| `1`-`9` | Switch to that task's tmux window |
+| `r` | Force immediate refresh |
+| `q` | Quit the manager |
+
+Desktop notifications (via macOS Notification Center) fire automatically for tasks that need attention or have stopped running. They deduplicate so you only get alerted once per issue.
+
+### Prerequisites
+
+- Python 3.9+ (ships with macOS)
+- No external dependencies -- stdlib only
 
 ## Customization
 
