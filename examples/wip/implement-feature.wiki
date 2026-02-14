@@ -1,0 +1,29 @@
+# Task Name: Add user authentication endpoints
+
+# Instructions
+
+Implement login and signup REST endpoints. Use JWT for session tokens. Include input validation and proper error responses.
+
+## Attributes
+
+**Status**: Implementing
+**Plan File Path**: ~/.claude/plans/auth-endpoints.md
+**Task Definition File Path**: ~/vimwiki/wip/implement-feature.wiki
+**Jira**: https://example.atlassian.net/browse/PROJ-42
+**PR**: https://github.com/example/project/pull/15
+**Branch**: feat/auth-endpoints
+**Tmux Window**: 3
+**Last Updated Date/Time**: Friday 14th February 14:32:10
+**Feature Branch CI Checks Link**: [CI Check URL]
+**Staging Branch CI Checks Link**: [Staging CI Check URL]
+
+---
+
+# Progress
+- [X] Read existing codebase and understand project structure
+- [X] Write implementation plan
+- [X] Plan approved, starting implementation
+- [X] Create signup endpoint with email validation
+- [o] Create login endpoint with JWT generation
+- [ ] Add middleware for protected routes
+- [ ] Write unit tests

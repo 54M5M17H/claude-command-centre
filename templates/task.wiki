@@ -1,0 +1,26 @@
+# Task Name: [Name Here]
+
+# Instructions
+
+
+## Attributes
+
+**Status**: Planning
+**Plan File Path**: [Path to file]
+**Task Definition File Path**: [Path to file, if relevant]
+**Jira**: [Jira URL]
+**PR**: Not created yet
+**Branch**: Not created yet
+**Tmux Window**: [window number]
+**Last Updated Date/Time**: [timestamp e.g. Monday 1st June 10:50:06]
+**Feature Branch CI Checks Link**: [CI Check URL]
+**Staging Branch CI Checks Link**: [Staging CI Check URL]
+
+---
+
+# Progress
+- [ ] Example step 1: Reading all context
+- [ ] Example step 2: Writing a plan
+- [ ] Example step 3: Asking clarifying questions
+- [ ] Example step 4: Plan accepted. Starting implementation.
+- [ ] Example step N: etc

@@ -1,0 +1,10 @@
+= Task Dashboard =
+
+== To Do ==
+- [ ] [[todo/setup-project|setup-project]]
+
+== In Progress ==
+- [o] [[wip/implement-feature|implement-feature]]
+
+== Done ==
+- [X] [[done/initial-research|initial-research]]

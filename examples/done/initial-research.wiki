@@ -1,0 +1,27 @@
+# Task Name: Research API design patterns
+
+# Instructions
+
+Research REST API design patterns and best practices. Summarize findings and recommend an approach for our project. Focus on error handling, pagination, and versioning.
+
+## Attributes
+
+**Status**: Waiting for Review
+**Plan File Path**: ~/.claude/plans/api-research.md
+**Task Definition File Path**: ~/vimwiki/done/initial-research.wiki
+**Jira**: https://example.atlassian.net/browse/PROJ-10
+**PR**: N/A
+**Branch**: N/A
+**Tmux Window**: 2
+**Last Updated Date/Time**: Thursday 13th February 16:45:22
+**Feature Branch CI Checks Link**: N/A
+**Staging Branch CI Checks Link**: N/A
+
+---
+
+# Progress
+- [X] Survey common REST API patterns (JSON:API, HAL, plain REST)
+- [X] Compare error handling approaches
+- [X] Evaluate pagination strategies (cursor vs offset)
+- [X] Write recommendation document
+- [X] Share findings for review
