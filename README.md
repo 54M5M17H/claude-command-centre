@@ -13,10 +13,32 @@ A workflow for managing AI agent tasks using vimwiki. Create tasks as wiki files
   ```
 - [tmux](https://github.com/tmux/tmux) -- tasks launch in new tmux windows, so vim must be running inside a tmux session
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed and authenticated
-- A vimwiki directory with `todo/`, `wip/`, and `done/` subdirectories:
-  ```bash
-  mkdir -p ~/vimwiki/{todo,wip,done}
-  ```
+
+## Vimwiki directory structure
+
+The launcher script reads `g:vimwiki_list[0].path` from your vim config to find your wiki. Inside that directory, tasks are organised into three subdirectories representing their lifecycle stage:
+
+```
+~/vimwiki/              # (or wherever g:vimwiki_list[0].path points)
+├── index.wiki          # Dashboard -- links to tasks across all stages
+├── todo/               # New tasks waiting to be started
+│   └── my-task.wiki
+├── wip/                # Tasks currently being worked on by a Claude agent
+│   └── active-task.wiki
+└── done/               # Completed tasks
+    └── finished-task.wiki
+```
+
+- `todo/` -- When you create a `.wiki` file here, the task template auto-loads. This is where you write task instructions before launching an agent.
+- `wip/` -- When you press `<leader>ai`, the task file moves here automatically. Claude reads and updates the file in this directory as it works.
+- `done/` -- Move completed tasks here with `<leader>mv` for archival.
+
+Create the structure:
+```bash
+mkdir -p ~/vimwiki/{todo,wip,done}
+```
+
+See `examples/` for a sample dashboard and tasks in each stage.
 
 ## Setup
 
